@@ -1,6 +1,6 @@
-FROM teddysun/xray
+FROM callmehuda/xray
 
-RUN apk add --no-cache openssh-server
+RUN apt install openssh-server -y
 
 COPY config.json /etc/xray/config.json
 COPY start.sh /start.sh
