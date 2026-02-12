@@ -1,5 +1,10 @@
 FROM teddysun/xray
 
-COPY config.json /etc/xray/config.json
+RUN apk add --no-cache openssh-server
 
-CMD ["xray", "-config", "/etc/xray/config.json"]
+COPY config.json /etc/xray/config.json
+COPY start.sh /start.sh
+
+RUN chmod +x /start.sh
+
+CMD ["/start.sh"]
